@@ -1,0 +1,9 @@
+version: "2"
+services:
+  web:
+    volumes:
+      - project_volume_sync:/app:nocopy
+
+volumes:
+  project_volume_sync:
+    external: true
