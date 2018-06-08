@@ -7,8 +7,6 @@ const fs = require('fs');
 
 mongoose.connect('mongodb://mongo:27017/test');
 
-const timestamp = new Date().toUTCString();
-
 const User = mongoose.model('User', new Schema({
 	username: { type: String, required: true, unique: true },
 	email: { type: String, required: true, unique: true },
@@ -20,7 +18,7 @@ app.use(bodyParser.text());
 app.use(bodyParser.json({ type: 'application/json'}));
 
 app.get('/', (req, res) => {
-  res.send(timestamp+'<br/><br/>'+fs.readFileSync('msg.txt', 'utf8'));
+  res.send('Hello World!!!');
 });
 
 app.route('/users')
