@@ -44,7 +44,7 @@ usermod -aG sudo dockeradmin
 
 ### Create new SSH Key
 
-Generate SSH Key on *local computer*
+Generate SSH Key on **local computer**
 ```
 ssh-keygen
 ```
@@ -60,11 +60,11 @@ Copy SSH Key using `ssh-copy-id`
 ssh-copy-id dockeradmin@server_ip
 ```
 
-*ALTERNATIVE METHOD*
+**ALTERNATIVE METHOD**
 
 Manually copy SSH Key
 
-On your *local computer*, print the SSH Public Key
+On your **local computer**, print the SSH Public Key
 ```
 cat ~/.ssh/id_rsa.pub
 ```
@@ -73,7 +73,7 @@ Copy public key output to your transfer area
 ```
 ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDBGTO0tsVejssuaYR5R3Y/i73SppJAhme1dH7W2c47d4gOqB4izP0+fRLfvbz/tnXFz4iOP/H6eCV05hqUhF+KYRxt9Y8tVMrpDZR2l75o6+xSbUOMu6xN+uVF0T9XzKcxmzTmnV7Na5up3QM3DoSRYX/EP3utr2+zAqpJIfKPLdA74w7g56oYWI9blpnpzxkEd3edVJOivUkpZ4JoenWManvIaSdMTJXMy3MtlQhva+j9CgguyVbUkdzK9KKEuah+pFZvaugtebsU+bllPTB0nlXGIJk98Ie9ZtxuY3nCKneB+KjKiXrAvXUPCI9mWkYS/1rggpFmu3HbXBnWSUdf localuser@machine.local
 ```
-_*Note:* The above SSH Key is an example_
+_**Note:** The above SSH Key is an example_
 
 SSH to *remote server* and create a new `.ssh` directory on the user home folder and change permissions to user read, write and execute
 ```
@@ -112,9 +112,9 @@ dockeradmin ALL=(ALL:ALL) NOPASSWD:ALL
 ```
 
 ### Connect Docker to your server
-User `docker-machine` to create a connection between your *local* and *remote* machines.
+User `docker-machine` to create a connection between your **local** and **remote** machines.
 
-In your *local* machine, create a new `docker-machine` and give it a name. (*docker-sandbox*)
+In your **local** machine, create a new `docker-machine` and give it a name. (*docker-sandbox*)
 ```
 docker-machine create \
   --driver generic \
