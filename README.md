@@ -2,21 +2,21 @@
 
 Guide to set up Ubuntu server and Docker for a sample express/mongoose CRUD User API app. The goal is to set up a local and a remote enviroment and use Docker to build and deploy the application.
 
-1. [Local environment](#local)
-1. [Remote environment](#remote)
+1. [Local environment](#local-environmen)
+1. [Remote environment](#remote-environment)
 
-## <a name="local"></a>Local environment
+## Local environment
 
 - [ ] File structure
 - [ ] Set up express/mongoose application
 - [ ] Set up Docker (docker-compose)
 - [ ] Set up docker-sync
 
-## <a name="remote"></a>Remote environment
+## Remote environment
 
 Set up Ubuntu user and `docker-machine`
 
-### Create new user for docker-machine
+### Create new user
 
 Create new user account with password
 ```
@@ -96,7 +96,7 @@ At this point, you should be able to SSH in without password
 ssh dockeradmin@server_ip
 ```
 
-### Enable NOPASSWD for dockeradmin user
+### Enable NOPASSWD
 Add a new `sudoers` file using `visudo` and `nano`
 ```
 sudo env EDITOR=nano visudo -f /etc/sudoers.d/dockeradmin
@@ -106,12 +106,12 @@ You will be prompet to input your password
 [sudo] password for dockeradmin: 
 ```
 
-Add the following line to the file and save
+Add the following line to the file to enable NOPASSWD for the `dockeradmin` user
 ```
 dockeradmin ALL=(ALL:ALL) NOPASSWD:ALL
 ```
 
-### Connect Docker to your server
+### Connect Docker with the server
 User `docker-machine` to create a connection between your **local** and **remote** machines.
 
 In your **local** machine, create a new `docker-machine` and give it a name. (*docker-sandbox*)
@@ -133,7 +133,7 @@ docker-machine env docker-sandbox
 
 Run `eval $(docker-machine env docker-sandbox)` to configure your shell to execute Docker commands.
 
-### Execute any Docker command on your server
+### Execute any Docker command on the server
 Compose you Docker project
 ```
 docker-compose up
