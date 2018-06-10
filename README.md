@@ -118,7 +118,7 @@ In your **local** machine, create a new `docker-machine` and give it a name. (*d
 ```
 docker-machine create \
   --driver generic \
-  --generic-ip-address=165.227.224.80 \
+  --generic-ip-address=server_ip \
   --generic-ssh-key ~/.ssh/id_rsa \
   --generic-ssh-user dockeradmin \
   docker-sandbox
