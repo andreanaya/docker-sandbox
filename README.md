@@ -1,6 +1,6 @@
 # docker-test
 
-Guide to set up Ubuntu server and Docker for a sample express/mongoose CRUD User API app. The goal is to set up a local and a remote enviroment and use Docker to build and deploy the application.
+Guide to set up Ubuntu server and Docker for a sample express/mongoose CRUD User API and a separate client interface that connects to it. The goal is to set up a local and a remote enviroment and use Docker to build and deploy both applications running behind a basic Nginx container.
 
 1. [Local environment](#local-environmen)
 1. [Remote environment](#remote-environment)
