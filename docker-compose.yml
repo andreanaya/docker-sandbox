@@ -1,20 +1,23 @@
 version: "2"
 services:
+  reverseproxy:
+    build: ./nginx
+    ports:
+        - 80:80
+    restart: always
   api:
+    depends_on:
+        - reverseproxy
     build: ./api
     command: npm run start:prod
-    ports:
-      - "4000:3000"
     links:
       - mongo
   web:
+    depends_on:
+        - reverseproxy
     build: ./web
     command: npm run start:prod
-    ports:
-      - "2000:3000"
     links:
       - mongo
   mongo:
     image: mongo
-    ports:
-      - "23013:27017"
