@@ -1,11 +1,11 @@
 {
   "name": "docker",
   "version": "1.0.0",
-  "main": "app.js",
+  "main": "api.js",
   "license": "MIT",
   "scripts": {
-    "start:dev": "nodemon app.js",
-    "start:prod": "node app.js"
+    "start:dev": "nodemon api.js",
+    "start:prod": "node api.js"
   },
   "dependencies": {
     "body-parser": "^1.18.3",

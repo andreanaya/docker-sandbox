@@ -18,7 +18,7 @@ app.use(bodyParser.text());
 app.use(bodyParser.json({ type: 'application/json'}));
 
 app.get('/', (req, res) => {
-  res.send('Hello World!!!');
+  res.send('API');
 });
 
 app.route('/users')

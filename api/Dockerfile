@@ -1,7 +1,7 @@
 FROM node:latest
 RUN mkdir -p /app
 WORKDIR /app
-ADD app/package.json /app
+ADD package.json /app
 RUN npm install
-COPY ./app /app
+COPY . /app
 EXPOSE 3000

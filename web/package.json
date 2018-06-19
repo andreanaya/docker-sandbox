@@ -1,0 +1,14 @@
+{
+  "name": "docker",
+  "version": "1.0.0",
+  "main": "web.js",
+  "license": "MIT",
+  "scripts": {
+    "start:dev": "nodemon web.js",
+    "start:prod": "node web.js"
+  },
+  "dependencies": {
+    "express": "^4.16.3",
+    "nodemon": "^1.17.5"
+  }
+}

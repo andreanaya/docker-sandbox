@@ -1,10 +1,17 @@
 version: "2"
 services:
-  web:
-    build: .
+  api:
+    build: ./api
     command: npm run start:prod
     ports:
-      - "3000:3000"
+      - "4000:3000"
+    links:
+      - mongo
+  web:
+    build: ./web
+    command: npm run start:prod
+    ports:
+      - "2000:3000"
     links:
       - mongo
   mongo:

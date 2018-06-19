@@ -2,5 +2,7 @@ version: "2"
 options:
   verbose: true
 syncs:
-  project_volume_sync:
-    src: "./app"
+  app_volume_sync:
+    src: "./api"
+  web_volume_sync:
+    src: "./web"

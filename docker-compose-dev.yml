@@ -1,10 +1,16 @@
 version: "2"
 services:
+  api:
+    command: npm run start:dev
+    volumes:
+      - app_volume_sync:/app:nocopy
   web:
     command: npm run start:dev
     volumes:
-      - project_volume_sync:/app:nocopy
+      - web_volume_sync:/app:nocopy
 
 volumes:
-  project_volume_sync:
+  app_volume_sync:
+    external: true
+  web_volume_sync:
     external: true
