@@ -2,22 +2,48 @@ version: "2"
 services:
   reverseproxy:
     build: ./nginx
+    container_name: nginx
+    volumes:
+      - /home/dockeradmin/letsencrypt/:/data/letsencrypt
+      - /home/dockeradmin/dh-param/dhparam-2048.pem:/etc/ssl/certs/dhparam-2048.pem
+      - /etc/letsencrypt/live/andreanaya.com/fullchain.pem:/etc/letsencrypt/live/andreanaya.com/fullchain.pem
+      - /etc/letsencrypt/live/andreanaya.com/privkey.pem:/etc/letsencrypt/live/andreanaya.com/privkey.pem
     ports:
         - 80:80
+        - 443:443
+    networks:
+      - docker-network
     restart: always
   api:
     depends_on:
         - reverseproxy
     build: ./api
+    container_name: api
+    volumes:
+      - /etc/letsencrypt/live/andreanaya.com/fullchain.pem:/etc/letsencrypt/live/andreanaya.com/fullchain.pem
+      - /etc/letsencrypt/live/andreanaya.com/privkey.pem:/etc/letsencrypt/live/andreanaya.com/privkey.pem
     command: npm run start:prod
+    networks:
+      - docker-network
     links:
       - mongo
   web:
     depends_on:
         - reverseproxy
     build: ./web
+    container_name: web
+    volumes:
+      - /etc/letsencrypt/live/andreanaya.com/fullchain.pem:/etc/letsencrypt/live/andreanaya.com/fullchain.pem
+      - /etc/letsencrypt/live/andreanaya.com/privkey.pem:/etc/letsencrypt/live/andreanaya.com/privkey.pem
     command: npm run start:prod
-    links:
-      - mongo
+    networks:
+      - docker-network
   mongo:
     image: mongo
+    container_name: mongo
+    networks:
+      - docker-network
+
+networks:
+  docker-network:
+    driver: bridge

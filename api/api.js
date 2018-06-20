@@ -1,3 +1,4 @@
+const https = require('https');
 const express = require('express');
 const app = express();
 const bodyParser = require('body-parser');
@@ -69,6 +70,14 @@ app.route('/user/:username')
 		})
 	})
 
-app.listen(3000, () => {
+const privateKey = fs.readFileSync('/etc/letsencrypt/live/andreanaya.com/privkey.pem', 'utf8');
+const certificate = fs.readFileSync('/etc/letsencrypt/live/andreanaya.com/fullchain.pem', 'utf8')
+
+const credentials = {
+	key: privateKey,
+	cert: certificate
+};
+
+let server = https.createServer(credentials, app).listen(3000, () => {
   console.log('Example app listening on port 3000!');
 });
