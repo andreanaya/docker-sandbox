@@ -20,6 +20,7 @@ services:
     build: ./api
     container_name: api
     volumes:
+      - /home/dockeradmin/dh-param/dhparam-2048.pem:/etc/ssl/certs/dhparam-2048.pem
       - /etc/letsencrypt/live/andreanaya.com/fullchain.pem:/etc/letsencrypt/live/andreanaya.com/fullchain.pem
       - /etc/letsencrypt/live/andreanaya.com/privkey.pem:/etc/letsencrypt/live/andreanaya.com/privkey.pem
     command: npm run start:prod
@@ -33,6 +34,7 @@ services:
     build: ./web
     container_name: web
     volumes:
+      - /home/dockeradmin/dh-param/dhparam-2048.pem:/etc/ssl/certs/dhparam-2048.pem
       - /etc/letsencrypt/live/andreanaya.com/fullchain.pem:/etc/letsencrypt/live/andreanaya.com/fullchain.pem
       - /etc/letsencrypt/live/andreanaya.com/privkey.pem:/etc/letsencrypt/live/andreanaya.com/privkey.pem
     command: npm run start:prod
